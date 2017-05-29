@@ -1,5 +1,6 @@
 # ServicePrediction
 
+PhD Thesis from Salma Najar (supervisors: Manuele Kirsch Pinheiro and Carine Souveyet)
 - copier les 3 projets dans le workspace
 - Lancer le script plusieurs fois
 - les résultats sont dans les fichiers du répertoire output:
