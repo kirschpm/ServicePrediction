@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="WINDOWS-1252"?>
+<rdf:RDF  xmlns:owl       = "http://www.w3.org/2002/07/owl#"
+xmlns:rdfs      = "http://www.w3.org/2000/01/rdf-schema#"
+xmlns:rdf       = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:service   = "http://www.daml.org/services/owl-s/1.1/Service.owl#"
+xmlns:process   = "http://www.daml.org/services/owl-s/1.1/Process.owl#"
+xmlns:profile    = "http://www.daml.org/services/owl-s/1.1/Profile.owl#"
+xmlns:grounding = "http://www.daml.org/services/owl-s/1.1/Grounding.owl#"
+xmlns:expr      = "http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+xmlns:swrl		="http://www.w3.org/2003/11/swrl#"
+
+xml:base        = "http://127.0.0.1/services/1.1/getMapOfUSAddress.owls">
+
+<owl:Ontology rdf:about="">
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Service.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Process.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Profile.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Grounding.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Expression.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/protonu.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/protont.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/geographydataset.owl" />
+</owl:Ontology>
+
+<service:Service rdf:ID="ADDRESS_MAP_SERVICE">
+<service:presents rdf:resource="#ADDRESS_MAP_PROFILE"/>
+<service:describedBy rdf:resource="#ADDRESS_MAP_PROCESS"/>
+<service:supports rdf:resource="#ADDRESS_MAP_GROUNDING"/>
+</service:Service>
+
+<profile:Profile rdf:ID="ADDRESS_MAP_PROFILE">
+<service:isPresentedBy rdf:resource="#ADDRESS_MAP_SERVICE"/>
+<profile:serviceName xml:lang="en">
+Postal Address Map service.
+</profile:serviceName>
+<profile:textDescription xml:lang="en">
+This service provides a vicinity map with the location of a given US structured address, with its city, state and zipcode.
+</profile:textDescription>
+<profile:hasInput  rdf:resource="#_ADDRESS"/>
+<profile:hasInput  rdf:resource="#_CITY"/>
+<profile:hasInput  rdf:resource="#_STATE"/>
+<profile:hasInput  rdf:resource="#_ZIPCODE"/>
+<profile:hasOutput rdf:resource="#_MAP"/>
+<profile:hasPrecondition rdf:resource="#CityLocatedIn"/>
+
+<profile:has_process rdf:resource="ADDRESS_MAP_PROCESS" /></profile:Profile>
+
+<process:AtomicProcess rdf:ID="ADDRESS_MAP_PROCESS">
+<service:describes rdf:resource="#ADDRESS_MAP_SERVICE"/>
+<process:hasInput  rdf:resource="#_ADDRESS"/>
+<process:hasInput  rdf:resource="#_CITY"/>
+<process:hasInput  rdf:resource="#_STATE"/>
+<process:hasInput  rdf:resource="#_ZIPCODE"/>
+<process:hasOutput rdf:resource="#_MAP"/>
+<process:hasPrecondition>
+	<expr:SWRL-Condition rdf:ID="CityLocatedIn">
+		<expr:expressionLanguage rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL"/>
+		<expr:expressionBody rdf:parseType="Literal">
+			<swrl:AtomList>
+				<rdf:first>
+					<swrl:IndividualPropertyAtom>
+						<swrl:propertyPredicate rdf:resource="http://127.0.0.1/ontology/protont.owl#locatedIn"/>
+						<swrl:argument1 rdf:resource="#_CITY"/>
+						<swrl:argument2 rdf:resource="#_STATE"/>
+					</swrl:IndividualPropertyAtom>
+				</rdf:first>
+				<rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+			</swrl:AtomList>
+		</expr:expressionBody>
+	</expr:SWRL-Condition>
+</process:hasPrecondition>
+</process:AtomicProcess>
+
+<process:Input rdf:ID="_ADDRESS">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/protonu.owl#PostalAddress</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Input>
+
+<process:Input rdf:ID="_CITY">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/protonu.owl#City</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Input>
+
+<process:Input rdf:ID="_STATE">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/protonu.owl#State</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Input>
+
+<process:Input rdf:ID="_ZIPCODE">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/geographydataset.owl#PostalCode</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Input>
+
+<process:Output  rdf:ID="_MAP">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/geographydataset.owl#Map</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Output>
+
+<grounding:WsdlGrounding rdf:ID="ADDRESS_MAP_GROUNDING">
+  <service:supportedBy rdf:resource="#ADDRESS_MAP_SERVICE"/>
+    <grounding:hasAtomicProcessGrounding>
+      <grounding:WsdlAtomicProcessGrounding rdf:ID="ADDRESS_MAP_AtomicProcessGrounding"/>
+    </grounding:hasAtomicProcessGrounding>
+</grounding:WsdlGrounding>
+
+<grounding:WsdlAtomicProcessGrounding rdf:about="#ADDRESS_MAP_AtomicProcessGrounding">
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1/wsdl/AddressMap#get_MAPRequest</grounding:wsdlInputMessage>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_MAP"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/AddressMap#_MAP</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1/wsdl/AddressMap#get_MAPResponse</grounding:wsdlOutputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_ZIPCODE"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/AddressMap#_ZIPCODE</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_ADDRESS"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/AddressMap#_ADDRESS</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_STATE"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/AddressMap#_STATE</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1/wsdl/getMapOfUSAddress.wsdl</grounding:wsdlDocument>
+    <grounding:owlsProcess rdf:resource="#ADDRESS_MAP_PROCESS"/>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_CITY"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/AddressMap#_CITY</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/AddressMap#get_MAP</grounding:operation>
+        <grounding:portType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/AddressMap#AddressMapSoap</grounding:portType>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+  </grounding:WsdlAtomicProcessGrounding>
+</rdf:RDF>

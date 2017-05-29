@@ -1,0 +1,902 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Age -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Age">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Profile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Entity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Entity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location_DefaultRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Battery -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Battery">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Battery_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Battery_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Building -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Building">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Building_Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Building_Location">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Building_Location_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Building_Location_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Building_Location_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Building_Location_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Building_Location_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location_DefaultRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#CPU -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#CPU">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#CPU_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#CPU_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Category -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Category">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Profile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Category_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Category_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Category_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Category_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Category_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Profile_DefaultRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Cellular_Phone -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Cellular_Phone">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Mobile_Device"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Phone"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#City -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#City">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Communication_Device -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Communication_Device">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Computer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Computer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Concept -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Concept"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Country -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Country">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Date -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Date">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Scope"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime_CustomRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime_CustomRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Scope_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Date_CustomRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Date_CustomRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Date_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Date_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Date_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Date_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Date_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Date_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime_DefaultRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Device -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Device">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Scope"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Device_Memory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Device_Memory">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Memory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Device_Memory_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Device_Memory_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Memory_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Entity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Entity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Entity-DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Entity-DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Entity_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Entity_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Entity_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Equal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Equal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Ethernet-Connection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Ethernet-Connection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Network"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Fixed_Phone -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Fixed_Phone">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Phone"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Higher -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Higher">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Higher-Equal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Higher-Equal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#JVM_Memory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#JVM_Memory">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Memory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#JVM_Memory_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#JVM_Memory_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Memory_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Scope"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Scope_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Lower -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Lower">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Lower-Equal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Lower-Equal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Man -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Man">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Memory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Memory">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Memory_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Memory_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Microphone -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Microphone">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Microphone_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Microphone_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Mobile-Connection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Mobile-Connection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Network"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Mobile_Device -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Mobile_Device">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Network -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Network">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Network_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Network_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Not-Equal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Not-Equal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#NoteBook -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#NoteBook">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Computer"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Mobile_Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Object -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Object">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Operator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Operator">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#PC -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#PC">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Computer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#PDA -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#PDA">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Computer"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Mobile_Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Passage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Passage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Passage_Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Passage_Location">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Passage_Location_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Passage_Location_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Passage_Location_representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Passage_Location_representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Passage_Location_representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location_DefaultRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Person">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Phone -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Phone">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Communication_Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Physical_Geography -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Physical_Geography">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Physical_Geography_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Physical_Geography_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location_DefaultRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Political_Geography -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Political_Geography">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Political_Geography_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Political_Geography_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Political_Geography_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Political_Geography_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Political_Geography_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location_DefaultRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Profile -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Profile">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Scope"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Profile_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Profile_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Profile_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Profile_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Profile_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Scope_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Scope"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Role -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Role">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Profile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Room -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Room">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Room_Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Room_Location">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Room_Location_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Room_Location_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Room_Location_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Room_Location_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Room_Location_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Architectural_Location_DefaultRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Scope -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Scope">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Scope_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Scope_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Screen -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Screen">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Screen_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Screen_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Resource_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Season -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Season">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#SmartPhone -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#SmartPhone">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Cellular_Phone"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#PDA"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time_CustomRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time_CustomRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#DateTime_DefaultRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Urbanism -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Urbanism">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Urbanism_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Urbanism_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Urbanism_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Urbanism_Representation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Urbanism_Representation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Location_DefaultRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Wifi-Connection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Wifi-Connection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Network"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Woman -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Woman">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#after-noon -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#after-noon">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#evening -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#evening">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#expertise -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#expertise">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Profile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#hiking-Expertise -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#hiking-Expertise">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#expertise"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#morning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#morning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#night -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#night">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#physical_Geography_DefaultRepresentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#physical_Geography_DefaultRepresentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#Physical_Geography_Representation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#surfing-Expertise -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#surfing-Expertise">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/ContextModel.owl#expertise"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,610 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Ontology1309178915833 "http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#" >
+    <!ENTITY hold_back_or_set_aside "http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#hold_back_or_set_aside," >
+    <!ENTITY for_oneself "http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#obtain_or_arrange_(for_oneself)" >
+    <!ENTITY hold_under_a_lease_or_rental_agreement "http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#hold_under_a_lease_or_rental_agreement;" >
+    <!ENTITY _presence "http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#discover_or_determine_the_existence,_presence," >
+    <!ENTITY something_for_someone_else "http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#arrange_for_and_reserve_(something_for_someone_else)" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl"
+     xmlns:_presence="&Ontology1309178915833;discover_or_determine_the_existence,_presence,"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Ontology1309178915833="http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:hold_back_or_set_aside="&Ontology1309178915833;hold_back_or_set_aside,"
+     xmlns:for_oneself="&Ontology1309178915833;obtain_or_arrange_(for_oneself)"
+     xmlns:hold_under_a_lease_or_rental_agreement="&Ontology1309178915833;hold_under_a_lease_or_rental_agreement;"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:something_for_someone_else="&Ontology1309178915833;arrange_for_and_reserve_(something_for_someone_else)">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#hasHypernym -->
+
+    <owl:ObjectProperty rdf:about="&Ontology1309178915833;hasHypernym">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&Ontology1309178915833;verb"/>
+        <rdfs:domain rdf:resource="&Ontology1309178915833;verb"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#hasHyponym -->
+
+    <owl:ObjectProperty rdf:about="&Ontology1309178915833;hasHyponym">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&Ontology1309178915833;verb"/>
+        <rdfs:range rdf:resource="&Ontology1309178915833;verb"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#hasSens -->
+
+    <owl:ObjectProperty rdf:about="&Ontology1309178915833;hasSens">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdfs:domain rdf:resource="&Ontology1309178915833;verb"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#hasSynonym -->
+
+    <owl:ObjectProperty rdf:about="&Ontology1309178915833;hasSynonym">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&Ontology1309178915833;verb"/>
+        <rdfs:range rdf:resource="&Ontology1309178915833;verb"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#sensverb -->
+
+    <owl:Class rdf:about="&Ontology1309178915833;sensverb"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#verb -->
+
+    <owl:Class rdf:about="&Ontology1309178915833;verb"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#acquire -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;acquire">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasSens rdf:resource="&Ontology1309178915833;discover_or_determine_the_existence,_presence,_or_fatc_of"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#arrange_for_and_reserve_(something_for_someone_else)_in_advance -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;arrange_for_and_reserve_(something_for_someone_else)_in_advance">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#book -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;book">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasSens rdf:resource="&Ontology1309178915833;arrange_for_and_reserve_(something_for_someone_else)_in_advance"/>
+        <hasSens rdf:resource="&Ontology1309178915833;engage_for_a_performance"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;hold"/>
+        <owl:sameAs rdf:resource="&Ontology1309178915833;hold"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;hold_open"/>
+        <hasSens rdf:resource="&Ontology1309178915833;record_a_charge_in_a_police_register"/>
+        <hasSens rdf:resource="&Ontology1309178915833;register_in_a_hotel_booker"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;request"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;reserve"/>
+        <owl:sameAs rdf:resource="&Ontology1309178915833;reserve"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;schedule"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;ticket"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#charter -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;charter">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;acquire"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;contract"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;engage"/>
+        <hasSens rdf:resource="&Ontology1309178915833;engage_for_service_under_a_term_of_contract"/>
+        <hasSens rdf:resource="&Ontology1309178915833;grant_a_charter_to"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;hire"/>
+        <owl:sameAs rdf:resource="&Ontology1309178915833;hire"/>
+        <hasSens rdf:resource="&Ontology1309178915833;hold_under_a_lease_or_rental_agreement;_of_goods_and_services"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;lease"/>
+        <owl:sameAs rdf:resource="&Ontology1309178915833;lease"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;rent"/>
+        <owl:sameAs rdf:resource="&Ontology1309178915833;rent"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;take"/>
+        <owl:sameAs rdf:resource="&Ontology1309178915833;take"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;take"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#contract -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;contract">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#detect -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1309178915833;detect">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;acquire"/>
+        <hasSens rdf:resource="&Ontology1309178915833;discover_or_determine_the_existence,_presence,_or_fatc_of"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#discover -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1309178915833;discover">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;acquire"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;detect"/>
+        <hasSens rdf:resource="&Ontology1309178915833;discover_or_determine_the_existence,_presence,_or_fatc_of"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;find"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;find_out"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;get"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;trace"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#discover_or_determine_the_existence,_presence,_or_fatc_of -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1309178915833;discover_or_determine_the_existence,_presence,_or_fatc_of">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#engage -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;engage">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;acquire"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;charter"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;contract"/>
+        <hasSens rdf:resource="&Ontology1309178915833;engage_for_service_under_a_term_of_contract"/>
+        <hasSens rdf:resource="&Ontology1309178915833;engage_or_hire_for_work"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;get"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;hire"/>
+        <owl:sameAs rdf:resource="&Ontology1309178915833;lease"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;lease"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;rent"/>
+        <owl:sameAs rdf:resource="&Ontology1309178915833;rent"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;sign_up"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;take"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#engage_for_a_performance -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;engage_for_a_performance">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#engage_for_service_under_a_term_of_contract -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;engage_for_service_under_a_term_of_contract">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#engage_or_hire_for_work -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;engage_or_hire_for_work">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#find -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1309178915833;find">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;acquire"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;discover"/>
+        <hasSens rdf:resource="&Ontology1309178915833;discover_or_determine_the_existence,_presence,_or_fatc_of"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;find_out"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;get"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;locate"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;search"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;trace"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#find_out -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1309178915833;find_out">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;discover"/>
+        <hasSens rdf:resource="&Ontology1309178915833;discover_or_determine_the_existence,_presence,_or_fatc_of"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#get -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;get">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasSens rdf:resource="&Ontology1309178915833;discover_or_determine_the_existence,_presence,_or_fatc_of"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;take"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#give_or_assign_a_resource_to_a_particular_person_or_cause -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;give_or_assign_a_resource_to_a_particular_person_or_cause">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#grant_a_charter_to -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;grant_a_charter_to">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#grant_use_or_occupation_of_under_a_term_of_contract -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;grant_use_or_occupation_of_under_a_term_of_contract">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#hire -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;hire">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;acquire"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;contract"/>
+        <hasSens rdf:resource="&Ontology1309178915833;engage_for_service_under_a_term_of_contract"/>
+        <hasSens rdf:resource="&Ontology1309178915833;engage_or_hire_for_work"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;get"/>
+        <hasSens rdf:resource="&Ontology1309178915833;hold_under_a_lease_or_rental_agreement;_of_goods_and_services"/>
+        <owl:sameAs rdf:resource="&Ontology1309178915833;lease"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;sign_up"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#hold -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;hold">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasSens rdf:resource="&Ontology1309178915833;arrange_for_and_reserve_(something_for_someone_else)_in_advance"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;book"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;hold_open"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;request"/>
+        <owl:sameAs rdf:resource="&Ontology1309178915833;reserve"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;reserve"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#hold_back_or_set_aside,_especially_for_future_use_or_contingency -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;hold_back_or_set_aside,_especially_for_future_use_or_contingency">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#hold_open -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;hold_open">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#hold_under_a_lease_or_rental_agreement;_of_goods_and_services -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;hold_under_a_lease_or_rental_agreement;_of_goods_and_services">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#lease -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;lease">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;acquire"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;charter"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;contract"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;engage"/>
+        <hasSens rdf:resource="&Ontology1309178915833;engage_for_service_under_a_term_of_contract"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;get"/>
+        <hasSens rdf:resource="&Ontology1309178915833;grant_use_or_occupation_of_under_a_term_of_contract"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;hire"/>
+        <hasSens rdf:resource="&Ontology1309178915833;hold_under_a_lease_or_rental_agreement;_of_goods_and_services"/>
+        <hasSens rdf:resource="&Ontology1309178915833;let_for_money"/>
+        <owl:sameAs rdf:resource="&Ontology1309178915833;rent"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;rent"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;sublease"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;sublet"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;take"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#let_for_money -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;let_for_money">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#locate -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1309178915833;locate">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <hasSens rdf:resource="&Ontology1309178915833;discover_or_determine_the_existence,_presence,_or_fatc_of"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;find"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;search"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#obtain_or_arrange_(for_oneself)_in_advance -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;obtain_or_arrange_(for_oneself)_in_advance">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#record_a_charge_in_a_police_register -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;record_a_charge_in_a_police_register">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#register -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;register">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasSens rdf:resource="&Ontology1309178915833;arrange_for_and_reserve_(something_for_someone_else)_in_advance"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#register_in_a_hotel_booker -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;register_in_a_hotel_booker">
+        <rdf:type rdf:resource="&Ontology1309178915833;sensverb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#rent -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;rent">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;charter"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;contract"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;engage"/>
+        <hasSens rdf:resource="&Ontology1309178915833;engage_for_service_under_a_term_of_contract"/>
+        <hasSens rdf:resource="&Ontology1309178915833;grant_use_or_occupation_of_under_a_term_of_contract"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;hire"/>
+        <hasSens rdf:resource="&Ontology1309178915833;hold_under_a_lease_or_rental_agreement;_of_goods_and_services"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;lease"/>
+        <hasSens rdf:resource="&Ontology1309178915833;let_for_money"/>
+        <owl:sameAs rdf:resource="&Ontology1309178915833;take"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;take"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#request -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;request">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#reserve -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;reserve">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasSens rdf:resource="&Ontology1309178915833;arrange_for_and_reserve_(something_for_someone_else)_in_advance"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;book"/>
+        <hasSens rdf:resource="&Ontology1309178915833;give_or_assign_a_resource_to_a_particular_person_or_cause"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;hold"/>
+        <hasSens rdf:resource="&Ontology1309178915833;hold_back_or_set_aside,_especially_for_future_use_or_contingency"/>
+        <hasHyponym rdf:resource="&Ontology1309178915833;hold_open"/>
+        <hasSens rdf:resource="&Ontology1309178915833;obtain_or_arrange_(for_oneself)_in_advance"/>
+        <hasHypernym rdf:resource="&Ontology1309178915833;request"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#schedule -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;schedule">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#search -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1309178915833;search">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <hasSens rdf:resource="&Ontology1309178915833;discover_or_determine_the_existence,_presence,_or_fatc_of"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;find"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;locate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#sign_up -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;sign_up">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#sublease -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;sublease">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#sublet -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;sublet">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#take -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;take">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasSens rdf:resource="&Ontology1309178915833;engage_for_service_under_a_term_of_contract"/>
+        <hasSynonym rdf:resource="&Ontology1309178915833;get"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#ticket -->
+
+    <owl:Thing rdf:about="&Ontology1309178915833;ticket">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/5/Ontology1309178915833.owl#trace -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1309178915833;trace">
+        <rdf:type rdf:resource="&Ontology1309178915833;verb"/>
+        <hasSens rdf:resource="&Ontology1309178915833;discover_or_determine_the_existence,_presence,_or_fatc_of"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="WINDOWS-1252"?>
+<rdf:RDF  xmlns:owl       = "http://www.w3.org/2002/07/owl#"
+xmlns:rdfs      = "http://www.w3.org/2000/01/rdf-schema#"
+xmlns:rdf       = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:service   = "http://www.daml.org/services/owl-s/1.1/Service.owl#"
+xmlns:process   = "http://www.daml.org/services/owl-s/1.1/Process.owl#"
+xmlns:profile    = "http://www.daml.org/services/owl-s/1.1/Profile.owl#"
+xmlns:grounding = "http://www.daml.org/services/owl-s/1.1/Grounding.owl#"
+xmlns:expr      = "http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+xmlns:swrl		="http://www.w3.org/2003/11/swrl#"
+
+xml:base        = "http://127.0.0.1/services/1.1/getDistanceBetweenPlaces.owls">
+
+<owl:Ontology rdf:about="">
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Service.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Process.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Profile.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Grounding.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Expression.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/geographydataset.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/SUMO.owl" />
+</owl:Ontology>
+
+<service:Service rdf:ID="DISTANCE_BETWEEN_PLACES_SERVICE">
+<service:presents rdf:resource="#DISTANCE_BETWEEN_PLACES_PROFILE"/>
+<service:describedBy rdf:resource="#DISTANCE_BETWEEN_PLACES_PROCESS"/>
+<service:supports rdf:resource="#DISTANCE_BETWEEN_PLACES_GROUNDING"/>
+</service:Service>
+
+<profile:Profile rdf:ID="DISTANCE_BETWEEN_PLACES_PROFILE">
+<service:isPresentedBy rdf:resource="#DISTANCE_BETWEEN_PLACES_SERVICE"/>
+<profile:serviceName xml:lang="en">
+Distance finder between two US places
+</profile:serviceName>
+<profile:textDescription xml:lang="en">
+This service retrieves the distance in kilometers between two given US city names and their state codes. The distance is a driving road distance.
+</profile:textDescription>
+<profile:hasInput  rdf:resource="#_USCITY1"/>
+<profile:hasInput  rdf:resource="#_USSTATECODE1"/>
+<profile:hasInput  rdf:resource="#_USCITY2"/>
+<profile:hasInput  rdf:resource="#_USSTATECODE2"/>
+<profile:hasOutput rdf:resource="#_DISTANCE"/>
+<profile:hasPrecondition rdf:resource="#DifferentCities"/>
+
+<profile:has_process rdf:resource="DISTANCE_BETWEEN_PLACES_PROCESS" /></profile:Profile>
+
+<process:AtomicProcess rdf:ID="DISTANCE_BETWEEN_PLACES_PROCESS">
+<service:describes rdf:resource="#DISTANCE_BETWEEN_PLACES_SERVICE"/>
+<process:hasInput  rdf:resource="#_USCITY1"/>
+<process:hasInput  rdf:resource="#_USCITY2"/>
+<process:hasInput  rdf:resource="#_USSTATECODE1"/>
+<process:hasInput  rdf:resource="#_USSTATECODE2"/>
+<process:hasOutput rdf:resource="#_DISTANCE"/>
+<process:hasPrecondition>
+	<expr:SWRL-Condition rdf:ID="DifferentCities">
+		<expr:expressionLanguage rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL"/>
+		<expr:expressionBody rdf:parseType="Literal">
+			<swrl:AtomList>
+				<rdf:first>
+					<swrl:DifferentIndividualsAtom>
+						<swrl:argument1 rdf:resource="#_USCITY1"/>
+						<swrl:argument2 rdf:resource="#_USCITY2"/>
+					</swrl:DifferentIndividualsAtom>
+				</rdf:first>
+				<rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+			</swrl:AtomList>
+		</expr:expressionBody>
+	</expr:SWRL-Condition>
+</process:hasPrecondition>
+</process:AtomicProcess>
+
+<process:Input rdf:ID="_USCITY1">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/protonu.owl#City</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Input>
+
+<process:Input rdf:ID="_USCITY2">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/protonu.owl#City</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Input>
+
+<process:Input rdf:ID="_USSTATECODE1">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/geographydataset.owl#USStateCode</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Input>
+
+<process:Input rdf:ID="_USSTATECODE2">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/geographydataset.owl#USStateCode</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Input>
+
+<process:Output  rdf:ID="_DISTANCE">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/geographydataset.owl#GeographicDistance</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Output>
+
+<grounding:WsdlGrounding rdf:ID="DISTANCE_BETWEEN_PLACES_GROUNDING">
+  <service:supportedBy rdf:resource="#DISTANCE_BETWEEN_PLACES_SERVICE"/>
+    <grounding:hasAtomicProcessGrounding>
+      <grounding:WsdlAtomicProcessGrounding rdf:ID="DISTANCE_BETWEEN_PLACES_AtomicProcessGrounding"/>
+    </grounding:hasAtomicProcessGrounding>
+</grounding:WsdlGrounding>
+
+<grounding:WsdlAtomicProcessGrounding rdf:about="#DISTANCE_BETWEEN_PLACES_AtomicProcessGrounding">
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1/wsdl/DistanceBetweenPlaces#get_DISTANCEResponse</grounding:wsdlOutputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_USSTATECODE1"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/DistanceBetweenPlaces#_USSTATECODE1</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_USSTATECODE2"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/DistanceBetweenPlaces#_USSTATECODE2</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/DistanceBetweenPlaces#get_DISTANCE</grounding:operation>
+        <grounding:portType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/DistanceBetweenPlaces#DistanceBetweenPlacesSoap</grounding:portType>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_DISTANCE"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/DistanceBetweenPlaces#_DISTANCE</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_USCITY1"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/DistanceBetweenPlaces#_USCITY1</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1/wsdl/getDistanceBetweenPlaces.wsdl</grounding:wsdlDocument>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1/wsdl/DistanceBetweenPlaces#get_DISTANCERequest</grounding:wsdlInputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_USCITY2"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/DistanceBetweenPlaces#_USCITY2</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:owlsProcess rdf:resource="#DISTANCE_BETWEEN_PLACES_PROCESS"/>
+  </grounding:WsdlAtomicProcessGrounding>
+</rdf:RDF>

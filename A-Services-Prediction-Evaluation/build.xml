@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="A-Services-Prediction-Evaluation">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../../Applications/eclipse J2EE"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="A-Services-Prediction-Evaluation.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/antlr-runtime-3.2.jar"/>
+        <pathelement location="lib/arq-2.8.7.jar"/>
+        <pathelement location="lib/arq.jar"/>
+        <pathelement location="lib/aterm-java-1.6.jar"/>
+        <pathelement location="lib/axis.jar"/>
+        <pathelement location="lib/commons-configuration.jar"/>
+        <pathelement location="lib/commons-discovery-0.2.jar"/>
+        <pathelement location="lib/commons-fileupload-1.2.2.jar"/>
+        <pathelement location="lib/commons-io-1.3.1.jar"/>
+        <pathelement location="lib/commons-logging-api.jar"/>
+        <pathelement location="lib/commons-logging.jar"/>
+        <pathelement location="lib/concurrent.jar"/>
+        <pathelement location="lib/ContextManagement-api.jar"/>
+        <pathelement location="lib/icu4j_3_4.jar"/>
+        <pathelement location="lib/icu4j-3.4.4.jar"/>
+        <pathelement location="lib/iri-0.8-sources.jar"/>
+        <pathelement location="lib/iri-0.8.jar"/>
+        <pathelement location="lib/jakarta-oro-2.0.8.jar"/>
+        <pathelement location="lib/jaxb-api.jar"/>
+        <pathelement location="lib/jaxrpc.jar"/>
+        <pathelement location="lib/jena-2.6.4.jar"/>
+        <pathelement location="lib/jena.jar"/>
+        <pathelement location="lib/jetty.jar"/>
+        <pathelement location="lib/jgrapht-jdk1.5.jar"/>
+        <pathelement location="lib/junit-4.5.jar"/>
+        <pathelement location="lib/log4j-1.2.13.jar"/>
+        <pathelement location="lib/lucene-core-2.3.1.jar"/>
+        <pathelement location="lib/lucene-snowball-2.0.1-dev.jar"/>
+        <pathelement location="lib/owl-s.jar"/>
+        <pathelement location="lib/owlapi-api.jar"/>
+        <pathelement location="lib/owlapi-api3.jar"/>
+        <pathelement location="lib/owlapi-apibinding.jar"/>
+        <pathelement location="lib/owlapi-src.jar"/>
+        <pathelement location="lib/owlsExtension-api.jar"/>
+        <pathelement location="lib/OWLSExtensionVocabulary-api.jar"/>
+        <pathelement location="lib/pellet-cli.jar"/>
+        <pathelement location="lib/pellet-core.jar"/>
+        <pathelement location="lib/pellet-datatypes.jar"/>
+        <pathelement location="lib/pellet-dig.jar"/>
+        <pathelement location="lib/pellet-el.jar"/>
+        <pathelement location="lib/pellet-explanation.jar"/>
+        <pathelement location="lib/pellet-jena.jar"/>
+        <pathelement location="lib/pellet-owlapi.jar"/>
+        <pathelement location="lib/pellet-pellint.jar"/>
+        <pathelement location="lib/pellet-query.jar"/>
+        <pathelement location="lib/pellet-rules.jar"/>
+        <pathelement location="lib/procalign.jar"/>
+        <pathelement location="lib/ProfileContextModel-api.jar"/>
+        <pathelement location="lib/relaxngDatatype.jar"/>
+        <pathelement location="lib/saaj.jar"/>
+        <pathelement location="lib/servlet.jar"/>
+        <pathelement location="lib/slf4j-api-1.5.8.jar"/>
+        <pathelement location="lib/slf4j-log4j12-1.5.8.jar"/>
+        <pathelement location="lib/stax-1.1.1-dev.jar"/>
+        <pathelement location="lib/swt.jar"/>
+        <pathelement location="lib/upnp.jar"/>
+        <pathelement location="lib/wsdl4j.jar"/>
+        <pathelement location="lib/wstx-asl-3.2.9.jar"/>
+        <pathelement location="lib/xercesImpl-2.7.1.jar"/>
+        <pathelement location="lib/xml-apis.jar"/>
+        <pathelement location="lib/xsdlib.jar"/>
+        <pathelement location="lib/sqlite-jdbc-3.7.2.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="A-Services-Prediction-Evaluation.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+	
+	<target name="run" depends="init">
+	  <java fork="true" failonerror="yes" classname="run.LaunchPrediction" classpath="bin">  
+	  	<classpath refid="A-Services-Prediction-Evaluation.classpath"/>
+	  	<arg value="${arg0}" /> 
+	  	<arg value="${arg1}" /> 
+	  </java>
+	  </target>
+</project>

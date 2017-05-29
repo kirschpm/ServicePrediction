@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:process="http://www.daml.org/services/owl-s/1.1/Process.owl#"
+    xmlns:flight-company="http://127.0.0.1/ontology/messemodul.owl#"
+    xmlns:list="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:expr="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns="http://127.0.0.1/services/1.1/fall_down_pill.owls#"
+    xmlns:service="http://www.daml.org/services/owl-s/1.1/Service.owl#"
+    xmlns:grounding="http://www.daml.org/services/owl-s/1.1/Grounding.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:profile="http://www.daml.org/services/owl-s/1.1/Profile.owl#"
+  xml:base="http://127.0.0.1/services/1.1/fall_down_pill.owls">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://127.0.0.1/ontology/Service.owl" />
+	<owl:imports rdf:resource="http://127.0.0.1/ontology/Process.owl" />
+	<owl:imports rdf:resource="http://127.0.0.1/ontology/Profile.owl" />
+	<owl:imports rdf:resource="http://127.0.0.1/ontology/Grounding.owl" />
+	<owl:imports rdf:resource="http://127.0.0.1/ontology/Expression.owl" />
+    <owl:imports rdf:resource="http://127.0.0.1/ontology/messemodul.owl"/>
+	<owl:imports rdf:resource="http://127.0.0.1/ontology/spatial_ontology.owl"/>
+  </owl:Ontology>
+  <profile:Profile rdf:ID="FallDownPillProfile">
+    <profile:hasInput>
+      <process:Input rdf:ID="MesseModul">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/ontology/messemodul.owl#MesseModul</process:parameterType>
+      </process:Input>
+    </profile:hasInput>
+	<profile:hasOutput>
+	  <process:Output rdf:ID="Slider">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/ontology/messemodul.owl#Slider</process:parameterType>
+      </process:Output>
+	</profile:hasOutput>
+	<profile:hasOutput>
+	  <process:Output rdf:ID="Cup">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/ontology/messemodul.owl#Cup</process:parameterType>
+      </process:Output>
+	</profile:hasOutput>
+	<profile:hasOutput>
+	  <process:Output rdf:ID="UltraSoundSensor">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/ontology/messemodul.owl#UltraSoundSensor</process:parameterType>
+      </process:Output>
+	</profile:hasOutput>
+	<profile:hasOutput>
+	  <process:Output rdf:ID="Pill">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/ontology/messemodul.owl#Pill</process:parameterType>
+      </process:Output>
+	</profile:hasOutput>
+	<profile:hasOutput>
+	  <process:Output rdf:ID="SliderZone">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/ontology/spatial_ontology.owl#SpatialZone</process:parameterType>
+      </process:Output>
+	</profile:hasOutput>
+	<profile:hasOutput>
+	  <process:Output rdf:ID="CupZone">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/ontology/spatial_ontology.owl#SpatialZone</process:parameterType>
+      </process:Output>
+	</profile:hasOutput>
+    <profile:serviceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fall Down Pill</profile:serviceName>
+    <profile:textDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >For a given state of the MesseModule machine, this service moves the pill from the slider to the cup, when the cup is in the regular position under the slider. The outputs of this service are the new states of the cup, the pill and the slider.</profile:textDescription>
+    <profile:has_process>
+	<process:AtomicProcess rdf:ID="FallDownPillAtomicProcess">
+	<process:hasPrecondition>
+			<expr:SWRL-Condition rdf:ID="InitialState">
+				<expr:expressionLanguage rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL"/>
+				<expr:expressionBody rdf:parseType="Literal">
+					<swrl:AtomList>
+						<rdf:first>
+							<swrl:ClassAtom>
+								<swrl:classPredicate rdf:resource="http://127.0.0.1/ontology/messemodul.owl#Down"/>
+								<swrl:argument1 rdf:resource="#Slider"/>
+							</swrl:ClassAtom>
+						</rdf:first>
+						<rdf:rest>
+							<swrl:AtomList>
+								<rdf:first>
+									<swrl:IndividualPropertyAtom>
+										<swrl:propertyPredicate rdf:resource="http://127.0.0.1/ontology/messemodul.owl#detectsCup"/>
+										<swrl:argument1 rdf:resource="#UltraSoundSensor"/>
+										<swrl:argument2 rdf:resource="#Cup"/>
+									</swrl:IndividualPropertyAtom>
+								</rdf:first>
+								<rdf:rest>
+									<swrl:AtomList>
+										<rdf:first>
+											<swrl:IndividualPropertyAtom>
+												<swrl:propertyPredicate rdf:resource="http://127.0.0.1/ontology/messemodul.owl#consistsOf"/>
+												<swrl:argument1 rdf:resource="#MesseModul"/>
+												<swrl:argument2 rdf:resource="#Slider"/>
+											</swrl:IndividualPropertyAtom>
+										</rdf:first>
+										<rdf:rest>
+											<swrl:AtomList>
+												<rdf:first>
+													<swrl:IndividualPropertyAtom>
+														<swrl:propertyPredicate rdf:resource="http://127.0.0.1/ontology/messemodul.owl#consistsOf"/>
+														<swrl:argument1 rdf:resource="#MesseModul"/>
+														<swrl:argument2 rdf:resource="#UltraSoundSensor"/>
+													</swrl:IndividualPropertyAtom>
+												</rdf:first>
+												<rdf:rest>
+													<swrl:AtomList>
+														<rdf:first>
+															<swrl:IndividualPropertyAtom>
+																<swrl:propertyPredicate rdf:resource="http://127.0.0.1/ontology/messemodul.owl#hasCargoArea"/>
+																<swrl:argument1 rdf:resource="#Slider"/>
+																<swrl:argument2 rdf:resource="#SliderZone"/>
+															</swrl:IndividualPropertyAtom>
+														</rdf:first>
+														<rdf:rest>
+															<swrl:AtomList>
+																<rdf:first>
+																	<swrl:IndividualPropertyAtom>
+																		<swrl:propertyPredicate rdf:resource="http://127.0.0.1/ontology/messemodul.owl#hasCargoArea"/>
+																		<swrl:argument1 rdf:resource="#Cup"/>
+																		<swrl:argument2 rdf:resource="#CupZone"/>
+																	</swrl:IndividualPropertyAtom>
+																</rdf:first>
+																<rdf:rest>
+																	<swrl:AtomList>
+																		<rdf:first>
+																			<swrl:IndividualPropertyAtom>
+																				<swrl:propertyPredicate rdf:resource="http://127.0.0.1/ontology/spatial_ontology.owl#isLocatedIn"/>
+																				<swrl:argument1 rdf:resource="#Pill"/>
+																				<swrl:argument2 rdf:resource="#SliderZone"/>
+																			</swrl:IndividualPropertyAtom>
+																		</rdf:first>
+																		<rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+																	</swrl:AtomList>
+																</rdf:rest>
+															</swrl:AtomList>
+														</rdf:rest>
+													</swrl:AtomList>
+												</rdf:rest>
+											</swrl:AtomList>
+										</rdf:rest>
+									</swrl:AtomList>
+								</rdf:rest>
+							</swrl:AtomList>
+						</rdf:rest>
+					</swrl:AtomList>
+				</expr:expressionBody>
+			</expr:SWRL-Condition>
+		</process:hasPrecondition>
+        <process:hasInput rdf:resource="#MesseModul"/>
+		<process:hasOutput rdf:resource="#Slider"/>
+		<process:hasOutput rdf:resource="#Cup"/>
+		<process:hasOutput rdf:resource="#UltraSoundSensor"/>
+		<process:hasOutput rdf:resource="#Pill"/>
+		<process:hasOutput rdf:resource="#SliderZone"/>
+		<process:hasOutput rdf:resource="#CupZone"/>
+        <service:describes>
+          <service:Service rdf:ID="FallDownPillService">
+            <service:describedBy rdf:resource="#FallDownPillAtomicProcess"/>
+            <service:supports>
+              <grounding:WsdlGrounding rdf:ID="FallDownPillWsdlGrounding">
+                <service:supportedBy rdf:resource="#FallDownPillService"/>
+				<grounding:hasAtomicProcessGrounding>
+					<grounding:WsdlAtomicProcessGrounding rdf:ID="FallDownPillAtomicProcessGrounding"/>
+				</grounding:hasAtomicProcessGrounding>
+              </grounding:WsdlGrounding>
+            </service:supports>
+            <service:presents rdf:resource="#FallDownPillProfile"/>
+          </service:Service>
+        </service:describes>
+		<process:hasResult>
+		  <process:Result rdf:ID="FlipUpSlider">
+			<process:hasEffect>
+				<expr:SWRL-Expression>
+					<expr:expressionLanguage rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL"/>
+					<expr:expressionBody rdf:parseType="Literal">
+						<swrl:AtomList>
+							<rdf:first>
+								<swrl:IndividualPropertyAtom>
+									<swrl:propertyPredicate rdf:resource="http://127.0.0.1/ontology/spatial_ontology.owl#isLocatedIn"/>
+									<swrl:argument1 rdf:resource="#Pill"/>
+									<swrl:argument2 rdf:resource="#CupZone"/>
+								</swrl:IndividualPropertyAtom>
+							</rdf:first>
+							<rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+						</swrl:AtomList>
+					</expr:expressionBody>
+				</expr:SWRL-Expression>
+			</process:hasEffect>
+		  </process:Result>
+		</process:hasResult>
+      </process:AtomicProcess>
+    </profile:has_process>
+    <service:presentedBy rdf:resource="#FallDownPillService"/>
+  </profile:Profile>
+  <grounding:WsdlAtomicProcessGrounding rdf:about="#FallDownPillAtomicProcessGrounding">
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1/wsdl/fall_down_pill.wsdl</grounding:wsdlDocument>
+    <grounding:owlsProcess rdf:resource="#FallDownPillAtomicProcess"/>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/Falldownpill#getSliderCupUltraSoundSensorPillSliderZoneCupZone</grounding:operation>
+        <grounding:portType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/Falldownpill#FalldownpillSoap</grounding:portType>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:owlsParameter rdf:resource="#Slider"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/Falldownpill#Slider</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:owlsParameter rdf:resource="#SliderZone"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/Falldownpill#SliderZone</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:owlsParameter rdf:resource="#UltraSoundSensor"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/Falldownpill#UltraSoundSensor</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:owlsParameter rdf:resource="#Cup"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/Falldownpill#Cup</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:owlsParameter rdf:resource="#CupZone"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/Falldownpill#CupZone</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:owlsParameter rdf:resource="#Pill"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/Falldownpill#Pill</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1/wsdl/Falldownpill#getSliderCupUltraSoundSensorPillSliderZoneCupZoneResponse</grounding:wsdlOutputMessage>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1/wsdl/Falldownpill#getSliderCupUltraSoundSensorPillSliderZoneCupZoneRequest</grounding:wsdlInputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#MesseModul"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/Falldownpill#MesseModul</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+  </grounding:WsdlAtomicProcessGrounding>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->
+

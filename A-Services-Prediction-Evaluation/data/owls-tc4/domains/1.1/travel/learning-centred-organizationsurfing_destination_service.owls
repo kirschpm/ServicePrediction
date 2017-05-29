@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:eprofile="http://www.citypassenger.com/services/ExtendedProfile.owl#" xmlns:eservice="http://www.citypassenger.com/services/ExtendedService.owl#" xmlns:grounding="http://www.daml.org/services/owl-s/1.1/Grounding.owl#" xmlns:intention="http://www.citypassenger.com/services/Intention.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:process="http://www.daml.org/services/owl-s/1.1/Process.owl#" xmlns:profile="http://www.daml.org/services/owl-s/1.1/Profile.owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:service="http://www.daml.org/services/owl-s/1.1/Service.owl#" xml:base="http://127.0.0.1/services/1.1/learning-centred-organizationsurfing_destination_service.owls">
+
+<owl:Ontology rdf:about="">
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Service.owl"/>
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Process.owl"/>
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Profile.owl"/>
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Grounding.owl"/>
+<owl:imports rdf:resource="http://127.0.0.1/ontology/ExtendedService.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/ExtendedProfile.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Intention.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/travel.owl"/>
+<owl:imports rdf:resource="http://127.0.0.1/ontology/portal.owl"/>
+</owl:Ontology>
+
+<service:Service rdf:ID="LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_SERVICE">
+<service:presents rdf:resource="#LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_PROFILE"/>
+<service:describedBy rdf:resource="#LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_PROCESS"/>
+<service:supports rdf:resource="#LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_GROUNDING"/>
+<service:satisfies rdf:resource="#SEARCH_LEARNINGGENERICAGENTDESTINATION_INTENTION"/>
+</service:Service>
+
+<profile:Profile rdf:ID="LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_PROFILE">
+<service:isPresentedBy rdf:resource="#LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_SERVICE"/>
+<profile:serviceName xml:lang="en">
+SurfingLearningCentredOganizationDestinationService
+</profile:serviceName>
+<profile:textDescription xml:lang="en">
+This service returns destinations where reputable generic agent works for given learning center organization and is responsible
+for sports especially surfing.
+</profile:textDescription>
+<profile:hasInput rdf:resource="#_SURFING"/>
+<profile:hasInput rdf:resource="#_LEARNING-CENTRED-ORGANIZATION"/>
+<profile:hasOutput rdf:resource="#_DESTINATION"/>
+
+<profile:has_process rdf:resource="LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_PROCESS"/>
+<eprofile:has_Intention rdf:resource="#SEARCH_LEARNINGGENERICAGENTDESTINATION_INTENTION"/>
+<eprofile:context rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.citypassenger.com/services/Context.xml</eprofile:context>
+</profile:Profile>
+
+<!--<process:ProcessModel rdf:ID="LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_PROCESS_MODEL">
+<service:describes rdf:resource="#LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_SERVICE"/>
+<process:hasProcess rdf:resource="#LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_PROCESS"/>
+</process:ProcessModel>-->
+
+<process:AtomicProcess rdf:ID="LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_PROCESS">
+<service:describes rdf:resource="#LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_SERVICE"/>
+<process:hasInput rdf:resource="#_SURFING"/>
+<process:hasInput rdf:resource="#_LEARNING-CENTRED-ORGANIZATION"/>
+<process:hasOutput rdf:resource="#_DESTINATION"/>
+</process:AtomicProcess>
+
+<process:Input rdf:ID="_SURFING">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/travel.owl#Surfing</process:parameterType>
+<rdfs:label/>
+</process:Input>
+
+<process:Input rdf:ID="_LEARNING-CENTRED-ORGANIZATION">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/portal.owl#Learning-Centred-Organization</process:parameterType>
+<rdfs:label/>
+</process:Input>
+
+<process:Output rdf:ID="_DESTINATION">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/travel.owl#Destination</process:parameterType>
+<rdfs:label/>
+</process:Output>
+
+<grounding:WsdlGrounding rdf:ID="LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_GROUNDING">
+<service:supportedBy rdf:resource="#LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_SERVICE"/>
+<grounding:hasAtomicProcessGrounding>
+      <grounding:WsdlAtomicProcessGrounding rdf:ID="LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_AtomicProcessGrounding"/>
+    </grounding:hasAtomicProcessGrounding>
+  </grounding:WsdlGrounding>
+  <grounding:WsdlAtomicProcessGrounding rdf:about="#LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_AtomicProcessGrounding">
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/wsdl/learning-centred-organizationsurfing_destination_service.wsdl</grounding:wsdlDocument>
+    <grounding:owlsProcess rdf:resource="#LEARNING-CENTRED-ORGANIZATIONSURFING_DESTINATION_PROCESS"/>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/wsdl/Learning-centred-organizationsurfingDestination#get_DESTINATION</grounding:operation>
+        <grounding:portType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/wsdl/Learning-centred-organizationsurfingDestination#Learning-centred-organizationsurfingDestinationSoap</grounding:portType>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/wsdl/Learning-centred-organizationsurfingDestination#get_DESTINATIONRequest</grounding:wsdlInputMessage>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/wsdl/Learning-centred-organizationsurfingDestination#get_DESTINATIONResponse</grounding:wsdlOutputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_SURFING"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/wsdl/Learning-centred-organizationsurfingDestination#_SURFING</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_LEARNING-CENTRED-ORGANIZATION"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/wsdl/Learning-centred-organizationsurfingDestination#_LEARNING-CENTRED-ORGANIZATION</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_DESTINATION"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/wsdl/Learning-centred-organizationsurfingDestination#_DESTINATION</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+  </grounding:WsdlAtomicProcessGrounding>
+
+<intention:Intention rdf:ID="SEARCH_LEARNINGGENERICAGENTDESTINATION_INTENTION">
+<intention:has_Verb>
+<intention:Verb rdf:ID="search">
+<intention:has_Sens>discover_or_determine_the_existence,_presence,_or_fatc_of</intention:has_Sens>
+</intention:Verb>
+</intention:has_Verb>
+<intention:has_Target>
+<intention:target rdf:ID="LearningGenericAgentDestination"/>
+</intention:has_Target>
+</intention:Intention>
+</rdf:RDF>

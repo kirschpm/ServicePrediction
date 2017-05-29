@@ -1,0 +1,16 @@
+10
+
+dir
+0
+http://ssh.lsteffenel.fr/svn/CtxtApp/SemanticServicesProject/data/owls-tc4/OntologyService/domain
+http://ssh.lsteffenel.fr/svn/CtxtApp
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+

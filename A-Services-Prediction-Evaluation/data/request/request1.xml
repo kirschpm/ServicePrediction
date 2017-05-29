@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request>
+ <intention>
+	<verb>
+		reserve
+	</verb>        
+	<target>
+			hotel
+	</target>
+	</intention>
+	<ctx:context xmlns:ctx="http://www.citypassenger.com/services/ContextSchema.xsd" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xsi:schemaLocation="http://www.citypassenger.com/services/ContextSchema.xsd">
+<ctx:condition>
+<ctx:contextElement>
+<ctx:hasEntity resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Entity.Person"/>
+<ctx:hasScope resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Scope.Location"/>
+<ctx:hasRepresentation resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Representation.Location_Representation"/>
+<ctx:contextValueSet>
+<ctx:contextValue>
+<ctx:hasScope resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Scope.Location.City"></ctx:hasScope>
+<ctx:hasRepresentation resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Representation.Location_Representation.City_Representation"/>
+<ctx:valueSet>
+<ctx:valueElement>
+<ctx:operator resource="http://www.citypassenger.com/services/ContextModel.owl#Concept.Operator.Equal"/>
+<ctx:value>France</ctx:value>
+</ctx:valueElement>
+</ctx:valueSet>
+</ctx:contextValue> 
+</ctx:contextValueSet>      
+</ctx:contextElement>
+<ctx:contextElement>
+<ctx:hasEntity resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Entity.Person"/>
+<ctx:hasScope resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Scope.Profile"/>
+<ctx:hasRepresentation resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Representation.Profile_Representation"/>
+<ctx:contextValueSet>
+<ctx:contextValue>
+<ctx:hasScope resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Scope.Profile.Age">
+</ctx:hasScope>
+<ctx:hasRepresentation resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Representation.Profile_Representation.Age_Representation"/>
+<ctx:valueSet>
+<ctx:valueElement>
+<ctx:operator resource="http://www.citypassenger.com/services/ContextModel.owl#Concept.Operator.Equal"/>
+<ctx:value>34</ctx:value>
+</ctx:valueElement>
+</ctx:valueSet>
+</ctx:contextValue> 
+</ctx:contextValueSet>      
+</ctx:contextElement>
+<ctx:contextElement>
+<ctx:hasEntity resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Entity.Person"/>
+<ctx:hasScope resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Scope.DateTime"/>
+<ctx:hasRepresentation resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Representation.DateTime_Representation"/>
+<ctx:contextValueSet>
+<ctx:contextValue>
+<ctx:hasScope resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Scope.DateTime.Season"></ctx:hasScope>
+<ctx:hasRepresentation resource="http://www.citypassenger.com/services/ContextModel.owl#concept.Representation.DateTime_Representation.Season_Representation"/>
+<ctx:valueSet>
+<ctx:valueElement>
+<ctx:operator resource="http://www.citypassenger.com/services/ContextModel.owl#Concept.Operator.Equal"/>
+<ctx:value>springer</ctx:value>
+</ctx:valueElement>
+</ctx:valueSet>
+</ctx:contextValue> 
+</ctx:contextValueSet>      
+</ctx:contextElement>
+</ctx:condition>
+</ctx:context>
+</request>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="WINDOWS-1252"?>
+<rdf:RDF  xmlns:owl       = "http://www.w3.org/2002/07/owl#"
+xmlns:rdfs      = "http://www.w3.org/2000/01/rdf-schema#"
+xmlns:rdf       = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:service   = "http://www.daml.org/services/owl-s/1.1/Service.owl#"
+xmlns:process   = "http://www.daml.org/services/owl-s/1.1/Process.owl#"
+xmlns:profile    = "http://www.daml.org/services/owl-s/1.1/Profile.owl#"
+xmlns:grounding = "http://www.daml.org/services/owl-s/1.1/Grounding.owl#"
+xmlns:expr      = "http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+xmlns:swrl		="http://www.w3.org/2003/11/swrl#"
+
+xml:base        = "http://127.0.0.1/services/1.1/city_state_ZipCodes.owls">
+
+<owl:Ontology rdf:about="">
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Service.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Process.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Profile.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Grounding.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/Expression.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/protonu.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/protont.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/geographydataset.owl" />
+<owl:imports rdf:resource="http://127.0.0.1/ontology/core-plus-office.owl" />
+</owl:Ontology>
+
+<service:Service rdf:ID="CITYSTATE_ZIPCODES_SERVICE">
+<service:presents rdf:resource="#CITYSTATE_ZIPCODES_PROFILE"/>
+<service:describedBy rdf:resource="#CITYSTATE_ZIPCODES_PROCESS"/>
+<service:supports rdf:resource="#CITYSTATE_ZIPCODES_GROUNDING"/>
+</service:Service>
+
+<profile:Profile rdf:ID="CITYSTATE_ZIPCODES_PROFILE">
+<service:isPresentedBy rdf:resource="#CITYSTATE_ZIPCODES_SERVICE"/>
+<profile:serviceName xml:lang="en">
+Zip codes finder  service.
+</profile:serviceName>
+<profile:textDescription xml:lang="en">
+This service returns all possible zipcodes for a given US city/state combination.
+For using this service valid License Key should be provided.
+</profile:textDescription>
+<profile:hasInput  rdf:resource="#_LICENSEKEY"/>
+<profile:hasInput  rdf:resource="#_CITY"/>
+<profile:hasInput  rdf:resource="#_STATE"/>
+<profile:hasOutput  rdf:resource="#_ZIPCODE"/>
+<profile:hasPrecondition  rdf:resource="#Authorization"/>
+
+<profile:has_process rdf:resource="CITYSTATE_ZIPCODES_PROCESS" /></profile:Profile>
+
+<process:AtomicProcess rdf:ID="CITYSTATE_ZIPCODES_PROCESS">
+<service:describes rdf:resource="#CITYSTATE_ZIPCODES_SERVICE"/>
+<process:hasInput  rdf:resource="#_LICENSEKEY"/>
+<process:hasInput  rdf:resource="#_CITY"/>
+<process:hasInput  rdf:resource="#_STATE"/>
+<process:hasOutput  rdf:resource="#_ZIPCODE"/>
+<process:hasPrecondition>
+	<expr:SWRL-Condition rdf:ID="Authorization">
+		<expr:expressionLanguage rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL"/>
+		<expr:expressionBody rdf:parseType="Literal">
+			<swrl:AtomList>
+				<rdf:first>
+					<swrl:ClassAtom>
+						<swrl:classPredicate rdf:resource="http://127.0.0.1/ontology/core-plus-office.owl#Authorized"/>
+						<swrl:argument1 rdf:resource="#_LICENSEKEY"/>
+					</swrl:ClassAtom>
+				</rdf:first>
+				<rdf:rest>
+					<swrl:AtomList>
+						<rdf:first>
+							<swrl:IndividualPropertyAtom>
+								<swrl:propertyPredicate rdf:resource="http://127.0.0.1/ontology/protont.owl#locatedIn"/>
+								<swrl:argument1 rdf:resource="#_CITY"/>
+								<swrl:argument2 rdf:resource="#_STATE"/>
+							</swrl:IndividualPropertyAtom>
+						</rdf:first>
+						<rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+					</swrl:AtomList>
+				</rdf:rest>
+			</swrl:AtomList>
+		</expr:expressionBody>
+	</expr:SWRL-Condition>
+</process:hasPrecondition>
+</process:AtomicProcess>
+
+<process:Input rdf:ID="_LICENSEKEY">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/geographydataset.owl#Code</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Input>
+
+<process:Input rdf:ID="_CITY">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/protonu.owl#City</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Input>
+
+<process:Input rdf:ID="_STATE">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/protonu.owl#State</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Input>
+
+<process:Output rdf:ID="_ZIPCODE">
+<process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://127.0.0.1/ontology/geographydataset.owl#US5DigitZipCode</process:parameterType>
+<rdfs:label></rdfs:label>
+</process:Output>
+
+<grounding:WsdlGrounding rdf:ID="CITYSTATE_ZIPCODES_GROUNDING">
+  <service:supportedBy rdf:resource="#CITYSTATE_ZIPCODES_SERVICE"/>
+    <grounding:hasAtomicProcessGrounding>
+      <grounding:WsdlAtomicProcessGrounding rdf:ID="CITYSTATE_ZIPCODES_AtomicProcessGrounding"/>
+    </grounding:hasAtomicProcessGrounding>
+</grounding:WsdlGrounding>
+
+<grounding:WsdlAtomicProcessGrounding rdf:about="#CITYSTATE_ZIPCODES_AtomicProcessGrounding">
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1/wsdl/city_state_ZipCodes.wsdl</grounding:wsdlDocument>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/CitystateZipcodes#get_ZIPCODE</grounding:operation>
+        <grounding:portType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/CitystateZipcodes#CitystateZipcodesSoap</grounding:portType>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+    <grounding:owlsProcess rdf:resource="#CITYSTATE_ZIPCODES_PROCESS"/>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_LICENSEKEY"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/CitystateZipcodes#_LICENSEKEY</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_STATE"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/CitystateZipcodes#_STATE</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_ZIPCODE"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/CitystateZipcodes#_ZIPCODE</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1/wsdl/CitystateZipcodes#get_ZIPCODEResponse</grounding:wsdlOutputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#_CITY"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1/wsdl/CitystateZipcodes#_CITY</grounding:wsdlMessagePart>
+        <grounding:xsltTransformationString>None (XSL)</grounding:xsltTransformationString>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1/wsdl/CitystateZipcodes#get_ZIPCODERequest</grounding:wsdlInputMessage>
+  </grounding:WsdlAtomicProcessGrounding>
+
+</rdf:RDF>

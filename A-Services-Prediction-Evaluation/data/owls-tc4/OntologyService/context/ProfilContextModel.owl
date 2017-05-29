@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ProfilContextModel "http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ProfilContextModel="http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#hasAttribut -->
+
+    <owl:ObjectProperty rdf:about="&ProfilContextModel;hasAttribut">
+        <rdfs:range rdf:resource="&ProfilContextModel;Attribut"/>
+        <rdfs:domain rdf:resource="&ProfilContextModel;Profile-Attribut"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#hasEntity -->
+
+    <owl:ObjectProperty rdf:about="&ProfilContextModel;hasEntity">
+        <rdfs:range rdf:resource="&ProfilContextModel;Entity"/>
+        <rdfs:domain rdf:resource="&ProfilContextModel;Profile"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#hasProfile -->
+
+    <owl:ObjectProperty rdf:about="&ProfilContextModel;hasProfile">
+        <rdfs:range rdf:resource="&ProfilContextModel;Profile"/>
+        <rdfs:domain rdf:resource="&ProfilContextModel;Profile-Attribut"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#hasWeight -->
+
+    <owl:DatatypeProperty rdf:about="&ProfilContextModel;hasWeight">
+        <rdfs:domain rdf:resource="&ProfilContextModel;Profile-Attribut"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Attribut -->
+
+    <owl:Class rdf:about="&ProfilContextModel;Attribut"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Entity -->
+
+    <owl:Class rdf:about="&ProfilContextModel;Entity"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Profile -->
+
+    <owl:Class rdf:about="&ProfilContextModel;Profile"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Profile-Attribut -->
+
+    <owl:Class rdf:about="&ProfilContextModel;Profile-Attribut"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Agenda -->
+
+    <owl:NamedIndividual rdf:about="&ProfilContextModel;Agenda">
+        <rdf:type rdf:resource="&ProfilContextModel;Attribut"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Device -->
+
+    <owl:NamedIndividual rdf:about="&ProfilContextModel;Device">
+        <rdf:type rdf:resource="&ProfilContextModel;Entity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#GPS -->
+
+    <owl:NamedIndividual rdf:about="&ProfilContextModel;GPS">
+        <rdf:type rdf:resource="&ProfilContextModel;Attribut"/>
+    </owl:NamedIndividual>
+
+   
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#City -->
+
+    <owl:NamedIndividual rdf:about="&ProfilContextModel;City">
+        <rdf:type rdf:resource="&ProfilContextModel;Attribut"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Memory -->
+
+    <owl:NamedIndividual rdf:about="&ProfilContextModel;Memory">
+        <rdf:type rdf:resource="&ProfilContextModel;Attribut"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Person -->
+
+    <owl:NamedIndividual rdf:about="&ProfilContextModel;Person">
+        <rdf:type rdf:resource="&ProfilContextModel;Entity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Profile1 -->
+
+    <owl:NamedIndividual rdf:about="&ProfilContextModel;Profile1">
+        <rdf:type rdf:resource="&ProfilContextModel;Profile"/>
+        <hasEntity rdf:resource="&ProfilContextModel;Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Profile2 -->
+
+    <owl:NamedIndividual rdf:about="&ProfilContextModel;Profile2">
+        <rdf:type rdf:resource="&ProfilContextModel;Profile"/>
+        <hasEntity rdf:resource="&ProfilContextModel;Device"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Profile_Attribut_Agenda -->
+
+    <owl:NamedIndividual rdf:about="&ProfilContextModel;Profile_Attribut_Agenda">
+        <rdf:type rdf:resource="&ProfilContextModel;Profile-Attribut"/>
+        <hasWeight rdf:datatype="&xsd;double">0.5</hasWeight>
+        <hasAttribut rdf:resource="&ProfilContextModel;Agenda"/>
+        <hasProfile rdf:resource="&ProfilContextModel;Profile1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Profile_Attribut_GPS -->
+
+    <owl:NamedIndividual rdf:about="&ProfilContextModel;Profile_Attribut_GPS">
+        <rdf:type rdf:resource="&ProfilContextModel;Profile-Attribut"/>
+        <hasWeight rdf:datatype="&xsd;double">0.8</hasWeight>
+        <hasAttribut rdf:resource="&ProfilContextModel;GPS"/>
+        <hasProfile rdf:resource="&ProfilContextModel;Profile1"/>
+    </owl:NamedIndividual>
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Profile_Attribut_City -->
+
+    <owl:NamedIndividual rdf:about="&ProfilContextModel;Profile_Attribut_City">
+        <rdf:type rdf:resource="&ProfilContextModel;Profile-Attribut"/>
+        <hasWeight rdf:datatype="&xsd;double">0.7</hasWeight>
+        <hasAttribut rdf:resource="&ProfilContextModel;City"/>
+        <hasProfile rdf:resource="&ProfilContextModel;Profile1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/ProfilContextModel.owl#Profile_Attribut_Memory -->
+
+    <owl:NamedIndividual rdf:about="&ProfilContextModel;Profile_Attribut_Memory">
+        <rdf:type rdf:resource="&ProfilContextModel;Profile-Attribut"/>
+        <hasWeight rdf:datatype="&xsd;double">0.6</hasWeight>
+        <hasAttribut rdf:resource="&ProfilContextModel;Memory"/>
+        <hasProfile rdf:resource="&ProfilContextModel;Profile2"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

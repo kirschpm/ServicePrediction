@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+
+<!DOCTYPE uridef [
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl">
+  <!ENTITY expr "http://www.daml.org/services/owl-s/1.2/generic/Expression.owl">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema">
+  <!ENTITY eservice "http://127.0.0.1/ontology/ExtendedService.owl">
+  <!ENTITY intention "http://127.0.0.1/ontology/Intention.owl">
+  <!ENTITY DEFAULT "http://127.0.0.1/ontology/Intention.owl">
+]>
+
+<!--
+This document uses entity types as a shorthand for URIs.
+For a version with unexpanded entities, try loading this source
+into Internet Explorer.
+-->
+
+<rdf:RDF
+  xmlns:rdf=	"&rdf;#"
+  xmlns:rdfs=	"&rdfs;#"  
+  xmlns:owl=	"&owl;#"
+  xmlns:xsd=	"&xsd;#"
+  xmlns:eservice="&eservice;#"
+  xmlns:intention="&intention;#"
+  xmlns=	"&DEFAULT;#"
+  xml:base=	"&DEFAULT;">
+
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo>
+      $Id: Profile.owl 2269 2009-08-19 15:21:09Z thorsten $
+    </owl:versionInfo> 
+    <rdfs:comment>
+      OWL ontology for Advertisements (i.e. Profiles).
+      This file belongs to the OWL-S Release.
+      Initial version created by Terry Payne (trp@ecs.soton.ac.uk).
+      Modified by Massimo Paolucci (paolucci@cs.cmu.edu)
+      Modified by David Martin and other members of the OWL-S Coalition.
+
+    </rdfs:comment> 
+<!--  
+  -->
+    <owl:imports>
+	<owl:Ontology rdf:about="&eservice;"/> 
+    </owl:imports>
+  </owl:Ontology>
+    
+
+<!--  ############ ########### ############ ############ ########### --> 
+<!--  ############                                       ########### --> 
+<!--  ############               INTENTION                 ########### --> 
+<!--  ############                                       ########### --> 
+<!--  ############ ########### ############ ############ ########### --> 
+
+  
+  <!-- 
+      INTENTION is a subclass of ServiceIntention.  It is used to
+      acknowledge that there may be different ways to profile services
+      that are different from the way we expressed it so far.
+    -->
+  
+  
+  <owl:Class rdf:ID="Intention">
+    <rdfs:label>Intention</rdfs:label> 
+    <rdfs:subClassOf rdf:resource="&eservice;#ServiceIntention" /> 
+    <rdfs:comment>
+      Definition of Intention
+    </rdfs:comment>
+  </owl:Class>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:ObjectProperty rdf:about="#has_Target">
+        <rdfs:domain rdf:resource="#Intention"/>
+        <rdfs:range rdf:resource="#Target"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/2/Intention.owl#hasVerb -->
+
+    <owl:ObjectProperty rdf:about="#has_Verb">
+        <rdfs:domain rdf:resource="#Intention"/>
+        <rdfs:range rdf:resource="#Verb"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://www.citypassenger.com/services/Intention.owl#has_Sens -->
+
+    <owl:DatatypeProperty rdf:about="#has_Sens">
+        <rdfs:domain rdf:resource="#Verb"/>
+        <rdfs:range rdf:resource="&xsd;#string"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+	<owl:Class rdf:ID="Verb">
+  		<rdfs:label>Verb</rdfs:label>
+	</owl:Class>
+
+	<owl:Class rdf:ID="Target">
+  		<rdfs:label>Target</rdfs:label>
+	</owl:Class>
+
+
+	<owl:Class rdf:ID="Object">
+  		<rdfs:subClassOf rdf:resource="#Target"/>
+  		<owl:disjointWith rdf:resource="#Result"/>
+	</owl:Class>
+
+	<owl:Class rdf:ID="Result">
+  		<rdfs:subClassOf rdf:resource="#Target"/>
+	</owl:Class>
+   
+</rdf:RDF>
